@@ -1,0 +1,48 @@
+#include "stdio.h"
+#include "stdint.h"
+#include <string.h>
+
+int CheckKey(uint8_t value, uint8_t index) {
+
+	if (((((index >> 1) & 0x01) & !((index >> 7) & 0x01) & !((index >> 4) & 0x01) & !((index >> 3) & 0x01) & !((index >> 5) & 0x01) & !((index >> 6) & 0x01)) | (!((index >> 7) & 0x01) & !((index >> 1) & 0x01) & !((index >> 6) & 0x01) & !((index >> 5) & 0x01) & !((index >> 3) & 0x01) & ((index >> 4) & 0x01)) | (!((index >> 5) & 0x01) & ((index >> 4) & 0x01) & ((index >> 0) & 0x01) & !((index >> 7) & 0x01) & !((index >> 2) & 0x01) & ((index >> 1) & 0x01) & ((index >> 3) & 0x01) & !((index >> 6) & 0x01)) | (!((index >> 6) & 0x01) & !((index >> 2) & 0x01) & !((index >> 4) & 0x01) & !((index >> 1) & 0x01) & ((index >> 5) & 0x01) & !((index >> 3) & 0x01) & !((index >> 7) & 0x01)) | (!((index >> 4) & 0x01) & !((index >> 1) & 0x01) & !((index >> 0) & 0x01) & !((index >> 6) & 0x01) & !((index >> 7) & 0x01) & !((index >> 5) & 0x01) & !((index >> 2) & 0x01)) | (((index >> 0) & 0x01) & !((index >> 5) & 0x01) & !((index >> 6) & 0x01) & !((index >> 3) & 0x01) & !((index >> 7) & 0x01) & ((index >> 2) & 0x01)) | (((index >> 2) & 0x01) & !((index >> 0) & 0x01) & !((index >> 5) & 0x01) & !((index >> 7) & 0x01) & ((index >> 1) & 0x01) & !((index >> 6) & 0x01)) | (((index >> 2) & 0x01) & !((index >> 5) & 0x01) & !((index >> 1) & 0x01) & !((index >> 7) & 0x01) & ((index >> 3) & 0x01) & !((index >> 6) & 0x01))) != ((value >> 0) & 0x01)) {
+		return 0;
+	}
+	if (((!((index >> 6) & 0x01) & !((index >> 7) & 0x01) & ((index >> 0) & 0x01) & !((index >> 1) & 0x01) & !((index >> 5) & 0x01) & !((index >> 3) & 0x01)) | (!((index >> 7) & 0x01) & !((index >> 6) & 0x01) & ((index >> 3) & 0x01) & !((index >> 0) & 0x01) & !((index >> 5) & 0x01) & !((index >> 1) & 0x01)) | (((index >> 1) & 0x01) & !((index >> 7) & 0x01) & !((index >> 6) & 0x01) & ((index >> 4) & 0x01) & !((index >> 5) & 0x01) & !((index >> 2) & 0x01)) | (((index >> 4) & 0x01) & !((index >> 7) & 0x01) & !((index >> 6) & 0x01) & !((index >> 5) & 0x01) & ((index >> 1) & 0x01) & !((index >> 3) & 0x01)) | (((index >> 2) & 0x01) & !((index >> 1) & 0x01) & !((index >> 5) & 0x01) & !((index >> 7) & 0x01) & !((index >> 6) & 0x01) & ((index >> 0) & 0x01)) | (!((index >> 5) & 0x01) & ((index >> 2) & 0x01) & !((index >> 4) & 0x01) & !((index >> 3) & 0x01) & !((index >> 7) & 0x01) & !((index >> 6) & 0x01) & !((index >> 0) & 0x01))) != ((value >> 1) & 0x01)) {
+		return 0;
+	}
+	if (((!((index >> 2) & 0x01) & !((index >> 5) & 0x01) & ((index >> 0) & 0x01) & !((index >> 3) & 0x01) & !((index >> 6) & 0x01) & !((index >> 4) & 0x01) & !((index >> 7) & 0x01)) | (!((index >> 7) & 0x01) & !((index >> 0) & 0x01) & !((index >> 3) & 0x01) & !((index >> 5) & 0x01) & !((index >> 1) & 0x01) & !((index >> 6) & 0x01)) | (!((index >> 2) & 0x01) & !((index >> 1) & 0x01) & !((index >> 5) & 0x01) & !((index >> 6) & 0x01) & !((index >> 0) & 0x01) & !((index >> 7) & 0x01)) | (!((index >> 7) & 0x01) & ((index >> 2) & 0x01) & ((index >> 3) & 0x01) & !((index >> 5) & 0x01) & !((index >> 1) & 0x01) & !((index >> 6) & 0x01) & ((index >> 0) & 0x01)) | (!((index >> 6) & 0x01) & ((index >> 2) & 0x01) & ((index >> 4) & 0x01) & !((index >> 5) & 0x01) & !((index >> 7) & 0x01) & ((index >> 0) & 0x01)) | (!((index >> 4) & 0x01) & !((index >> 1) & 0x01) & !((index >> 6) & 0x01) & ((index >> 0) & 0x01) & !((index >> 3) & 0x01) & !((index >> 7) & 0x01) & !((index >> 2) & 0x01)) | (!((index >> 6) & 0x01) & !((index >> 2) & 0x01) & !((index >> 5) & 0x01) & !((index >> 1) & 0x01) & !((index >> 7) & 0x01) & !((index >> 3) & 0x01))) != ((value >> 2) & 0x01)) {
+		return 0;
+	}
+	if (((!((index >> 6) & 0x01) & !((index >> 5) & 0x01) & !((index >> 3) & 0x01) & !((index >> 7) & 0x01) & !((index >> 0) & 0x01) & !((index >> 4) & 0x01) & ((index >> 1) & 0x01)) | (!((index >> 0) & 0x01) & !((index >> 6) & 0x01) & ((index >> 2) & 0x01) & !((index >> 3) & 0x01) & !((index >> 7) & 0x01) & !((index >> 5) & 0x01) & !((index >> 4) & 0x01)) | (!((index >> 4) & 0x01) & !((index >> 6) & 0x01) & ((index >> 3) & 0x01) & !((index >> 5) & 0x01) & !((index >> 1) & 0x01) & !((index >> 7) & 0x01) & !((index >> 2) & 0x01)) | (((index >> 2) & 0x01) & ((index >> 1) & 0x01) & !((index >> 0) & 0x01) & !((index >> 7) & 0x01) & !((index >> 5) & 0x01) & !((index >> 4) & 0x01) & !((index >> 6) & 0x01)) | (((index >> 0) & 0x01) & ((index >> 4) & 0x01) & !((index >> 5) & 0x01) & !((index >> 6) & 0x01) & !((index >> 3) & 0x01) & !((index >> 1) & 0x01) & !((index >> 2) & 0x01) & !((index >> 7) & 0x01)) | (!((index >> 7) & 0x01) & !((index >> 3) & 0x01) & !((index >> 5) & 0x01) & !((index >> 6) & 0x01) & ((index >> 1) & 0x01) & ((index >> 4) & 0x01) & ((index >> 2) & 0x01) & ((index >> 0) & 0x01)) | (((index >> 2) & 0x01) & !((index >> 6) & 0x01) & ((index >> 0) & 0x01) & ((index >> 3) & 0x01) & !((index >> 7) & 0x01) & !((index >> 1) & 0x01) & !((index >> 5) & 0x01)) | (!((index >> 7) & 0x01) & ((index >> 5) & 0x01) & !((index >> 4) & 0x01) & !((index >> 2) & 0x01) & !((index >> 3) & 0x01) & !((index >> 6) & 0x01) & ((index >> 0) & 0x01) & !((index >> 1) & 0x01))) != ((value >> 3) & 0x01)) {
+		return 0;
+	}
+	if (((((index >> 0) & 0x01) & !((index >> 7) & 0x01) & !((index >> 5) & 0x01) & !((index >> 6) & 0x01) & ((index >> 2) & 0x01)) | (((index >> 1) & 0x01) & !((index >> 6) & 0x01) & !((index >> 7) & 0x01) & !((index >> 5) & 0x01) & ((index >> 2) & 0x01)) | (!((index >> 4) & 0x01) & !((index >> 7) & 0x01) & ((index >> 3) & 0x01) & !((index >> 5) & 0x01) & !((index >> 0) & 0x01) & !((index >> 6) & 0x01)) | (!((index >> 7) & 0x01) & !((index >> 4) & 0x01) & ((index >> 1) & 0x01) & ((index >> 3) & 0x01) & !((index >> 5) & 0x01) & !((index >> 6) & 0x01)) | (!((index >> 5) & 0x01) & !((index >> 1) & 0x01) & ((index >> 4) & 0x01) & !((index >> 3) & 0x01) & !((index >> 7) & 0x01) & !((index >> 6) & 0x01)) | (!((index >> 7) & 0x01) & !((index >> 5) & 0x01) & ((index >> 0) & 0x01) & !((index >> 6) & 0x01) & !((index >> 3) & 0x01) & ((index >> 4) & 0x01)) | (!((index >> 6) & 0x01) & ((index >> 0) & 0x01) & !((index >> 7) & 0x01) & ((index >> 4) & 0x01) & !((index >> 5) & 0x01) & !((index >> 1) & 0x01)) | (!((index >> 6) & 0x01) & !((index >> 0) & 0x01) & !((index >> 5) & 0x01) & !((index >> 7) & 0x01) & ((index >> 3) & 0x01) & ((index >> 1) & 0x01)) | (!((index >> 3) & 0x01) & !((index >> 4) & 0x01) & !((index >> 1) & 0x01) & ((index >> 0) & 0x01) & !((index >> 2) & 0x01) & !((index >> 6) & 0x01) & !((index >> 7) & 0x01) & ((index >> 5) & 0x01)) | (((index >> 3) & 0x01) & ((index >> 2) & 0x01) & !((index >> 7) & 0x01) & !((index >> 6) & 0x01) & !((index >> 5) & 0x01))) != ((value >> 4) & 0x01)) {
+		return 0;
+	}
+	if (((((index >> 2) & 0x01) & !((index >> 5) & 0x01) & !((index >> 0) & 0x01) & !((index >> 7) & 0x01) & !((index >> 6) & 0x01)) | (!((index >> 7) & 0x01) & !((index >> 2) & 0x01) & !((index >> 5) & 0x01) & !((index >> 6) & 0x01) & ((index >> 1) & 0x01)) | (!((index >> 6) & 0x01) & !((index >> 7) & 0x01) & ((index >> 2) & 0x01) & !((index >> 5) & 0x01) & !((index >> 1) & 0x01) & !((index >> 3) & 0x01)) | (!((index >> 5) & 0x01) & !((index >> 6) & 0x01) & ((index >> 3) & 0x01) & !((index >> 7) & 0x01) & ((index >> 1) & 0x01)) | (!((index >> 4) & 0x01) & !((index >> 3) & 0x01) & !((index >> 7) & 0x01) & !((index >> 6) & 0x01) & !((index >> 1) & 0x01) & !((index >> 2) & 0x01)) | (!((index >> 3) & 0x01) & !((index >> 5) & 0x01) & !((index >> 4) & 0x01) & !((index >> 7) & 0x01) & !((index >> 6) & 0x01)) | (!((index >> 2) & 0x01) & !((index >> 7) & 0x01) & !((index >> 5) & 0x01) & !((index >> 6) & 0x01) & ((index >> 0) & 0x01) & ((index >> 3) & 0x01)) | (!((index >> 6) & 0x01) & ((index >> 4) & 0x01) & !((index >> 5) & 0x01) & !((index >> 0) & 0x01) & !((index >> 7) & 0x01))) != ((value >> 5) & 0x01)) {
+		return 0;
+	}
+	if (((((index >> 2) & 0x01) & !((index >> 6) & 0x01) & !((index >> 7) & 0x01) & ((index >> 1) & 0x01) & !((index >> 0) & 0x01) & !((index >> 5) & 0x01) & !((index >> 4) & 0x01)) | (!((index >> 3) & 0x01) & !((index >> 2) & 0x01) & !((index >> 7) & 0x01) & !((index >> 5) & 0x01) & !((index >> 6) & 0x01)) | (!((index >> 0) & 0x01) & !((index >> 1) & 0x01) & !((index >> 3) & 0x01) & !((index >> 5) & 0x01) & !((index >> 6) & 0x01) & !((index >> 7) & 0x01)) | (!((index >> 5) & 0x01) & !((index >> 6) & 0x01) & !((index >> 7) & 0x01) & ((index >> 4) & 0x01) & ((index >> 1) & 0x01) & ((index >> 0) & 0x01)) | (!((index >> 2) & 0x01) & !((index >> 7) & 0x01) & !((index >> 4) & 0x01) & !((index >> 3) & 0x01) & ((index >> 0) & 0x01) & !((index >> 1) & 0x01) & !((index >> 6) & 0x01)) | (!((index >> 7) & 0x01) & !((index >> 5) & 0x01) & !((index >> 1) & 0x01) & ((index >> 0) & 0x01) & !((index >> 6) & 0x01) & !((index >> 4) & 0x01)) | (!((index >> 5) & 0x01) & ((index >> 0) & 0x01) & !((index >> 7) & 0x01) & !((index >> 6) & 0x01) & !((index >> 2) & 0x01) & !((index >> 4) & 0x01)) | (!((index >> 5) & 0x01) & !((index >> 6) & 0x01) & !((index >> 7) & 0x01) & !((index >> 2) & 0x01) & !((index >> 0) & 0x01) & ((index >> 4) & 0x01)) | (!((index >> 1) & 0x01) & !((index >> 7) & 0x01) & !((index >> 5) & 0x01) & !((index >> 6) & 0x01) & ((index >> 0) & 0x01) & ((index >> 3) & 0x01) & ((index >> 2) & 0x01)) | (!((index >> 2) & 0x01) & !((index >> 1) & 0x01) & !((index >> 4) & 0x01) & !((index >> 7) & 0x01) & !((index >> 6) & 0x01) & !((index >> 5) & 0x01))) != ((value >> 6) & 0x01)) {
+		return 0;
+	}
+
+	return 1;
+}
+
+int main() {
+	char Flag[34];
+	int szFlag = 34;
+	
+	for (int j = 0; j < szFlag; j++) {
+		for (int i = 32; i < 127; i++) {
+			if (CheckKey(i, j) == 1) {
+				Flag[j] = i;
+			}
+		}
+	}
+	
+	printf(Flag);
+	printf("\n");
+	
+	return 0;
+}
