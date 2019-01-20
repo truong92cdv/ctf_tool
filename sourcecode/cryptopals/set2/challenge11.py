@@ -4,8 +4,8 @@ import cryptolib
 def create_random_bytes(length=16):
 	return "".join([chr(randint(0,255)) for i in range(length)])
 
-def ecb_cbc_encrypt(padded_data):
-	# padded_data = create_key(randint(5,10)) + data + create_key(randint(5,10))
+def ecb_cbc_encrypt(data):
+	padded_data = create_random_bytes(randint(5,10)) + data + create_random_bytes(randint(5,10))
 	key = create_random_bytes()
 	if randint(0,1):
 		return "ECB", cryptolib.aes_ecb_encrypt(padded_data, key)

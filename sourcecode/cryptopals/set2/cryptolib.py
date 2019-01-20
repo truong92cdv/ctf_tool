@@ -149,7 +149,15 @@ def check_AES_mode_ECB(string):
 # alpha  = string.ascii_uppercase
 # output = 'YOUAREATALENTEDDECTIVE'
 def sub_cipher(string, key, alpha):
-    return "".join([alpha[(alpha.find(c) + key) % len(alpha)] for c in string])
+	m = ''
+	for c in string:
+		index = alpha.find(c)
+		if index >= 0:
+			m += alpha[(index + key) % len(alpha)]
+		else:
+			m += c
+	return m
+    # return "".join([alpha[(alpha.find(c) + key) % len(alpha)] for c in string])
 
 # string = 'Vo Nhat Truong'
 # output = 'Vo Nhat Truong'
@@ -188,11 +196,14 @@ def _aes_cbc_encrypt(data, key, iv):
 
 def _aes_cbc_decrypt(data, key, iv):
 	plaintext = ''
-	prev = iv
 	for i in range(0, len(data), AES.block_size):
-		prev = string_xor(aes_ecb_decrypt(data[i:i+AES.block_size], key), prev)
-		plaintext += prev
-	return plaintext
+		if i == 0:
+			prev = iv
+		else:
+			prev = data[i-AES.block_size:i]
+		decrypted_block = string_xor(aes_ecb_decrypt(data[i:i+AES.block_size], key), prev)
+		plaintext += decrypted_block
+	return pkcs7_unpad(plaintext)
 
 # encrypt data with mode CBC
 def aes_cbc_encrypt(data, key, iv):
@@ -208,27 +219,35 @@ def aes_cbc_decrypt(data, key, iv):
 def create_random_bytes(length=16):
 	return "".join([chr(randint(0,255)) for i in range(length)])
 
+# Return Substitution Cipher with Mode 'ENCRYPT' or 'DECRYPT'
+def substitution_cipher(message, MODE, key):
+    
+    translated = ''
+    charsA = LETTERS
+    charsB = key
+    
+    if MODE.upper() == 'DECRYPT':
+        charsA, charsB = charsB, charsA
 
-# m = 'Trying to decrypt something else to see if it works.jjjjjjjjjjj'
+    for symbol in message:
+        if symbol.upper() in charsA:
+            symIndex = charsA.find(symbol.upper())
+            if symbol.isupper():
+                translated += charsB[symIndex].upper()
+            else:
+                translated += charsB[symIndex].lower()
+        else:
+            translated += symbol
+
+    return translated
+
+
+# m = 'Trying to decrypt something else to see if it works.jjjjjjjjjjjjj'
 # k = 'Vo Nhat Truong88'
 # iv = '\x00' * AES.block_size
-# c = aes_cbc_encrypt(m, k, iv)
-# d = aes_cbc_decrypt(c, k, iv)
+# c = _aes_cbc_encrypt(m, k, iv)
+# d = _aes_cbc_decrypt(c, k, iv)
 # print len(c)
 # print len(m)
 # print len(d)
 # print d
-
-# A = Diffie_Hellman()
-# B = Diffie_Hellman()
-
-# print A.p
-# print B.p
-# print A.g
-# print B.g
-# print A.secret_key
-# print B.secret_key
-# print A.public_key
-# print B.public_key
-# print A.get_shared_key(B.public_key)
-# print B.get_shared_key(A.public_key)
