@@ -1,0 +1,10 @@
+Hiện tại lý thuyết về Máy tính lượng tử dường như vẫn còn những tranh cãi. Tuy nhiên một số chứng minh đã chỉ ra rằng nếu tồn tại máy tính lượng tử, hệ mã RSA sẽ bị phá (Shor's Algorithm). Do đó một số hệ mã khác ra đời để chống lại tấn công của Máy tính lượng tử, và NTRU Lattice Based Crypto là một trong số đó.
+
+NTRU cũng là một hệ mã bất đối xứng. Trong challenge này các bạn sẽ có Public Key và Ciphertext, mục đích là tìm được Flag đã bị mã hóa. Các file liên quan:
+- ciphertext.bin: chứa flag đã được Encrypt
+- key.public: chứa public key
+- key.private: chứa private key (không được cung cấp :v)
+
+Hint:
+1. LLL Reduction Algorithm
+2. SageMathCell: https://sagecell.sagemath.org/
