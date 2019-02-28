@@ -1,9 +1,0 @@
-break main
-  commands
-    set ($eax) = 0
-    continue
-    en
-  end
-catch syscall ptrace
-break main
-
