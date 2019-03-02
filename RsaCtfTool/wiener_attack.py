@@ -80,3 +80,15 @@ class WienerAttack(object):
                             self.p = roots[0]
                             self.q = roots[1]
                         break
+
+
+def main():
+    n, e = 90581, 17993
+    Wiener = WienerAttack(n,e)
+    print 'd =', Wiener.d
+    print 'p =', Wiener.p
+    print 'q =', Wiener.q
+
+
+if __name__ == '__main__':
+    main()
