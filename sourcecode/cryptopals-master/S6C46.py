@@ -59,7 +59,7 @@ def main():
     rsa_parity_oracle.decrypt(ciphertext)
 
     # Check if the attack works
-    plaintext = parity_oracle_attack(ciphertext, rsa_parity_oracle)
+    plaintext = parity_oracle_attack(ciphertext, rsa_parity_oracle, True)
     assert plaintext == input_bytes
 
 

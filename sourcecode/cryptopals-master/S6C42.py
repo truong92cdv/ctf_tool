@@ -19,6 +19,7 @@ class RSADigitalSignature(RSA):
 
         # Decrypt the given encrypted signature
         signature = b'\x00' + int_to_bytes(self.encrypt(encrypted_signature))
+        print (signature)
 
         # Verify that the signature contains a block in PKCS1.5 standard format (vulnerable implementation)
         r = re.compile(b'\x00\x01\xff+?\x00.{15}(.{20})', re.DOTALL)
@@ -50,6 +51,7 @@ def forge_signature(message, key_length):
 def main():
     message = b'hi mom'
     forged_signature = forge_signature(message, 1024)
+    print (forged_signature)
 
     assert RSADigitalSignature(1024).verify(forged_signature, message)
 

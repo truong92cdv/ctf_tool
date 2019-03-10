@@ -103,4 +103,3 @@ def ecm(n, B1=10, B2=20):
         iters *= 2
 
 __all__ = [ecm]
-

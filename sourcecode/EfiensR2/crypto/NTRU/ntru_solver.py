@@ -2,7 +2,7 @@ import sys
 sys.path.append("/usr/lib/python2.7/dist-packages/")  # for gmpy2
 
 
-from sage.all import *
+# from sage.all import *
 from ntru import PublicKey, PrivateKey, decrypt
  
 pub = PublicKey()

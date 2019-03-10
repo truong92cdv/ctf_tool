@@ -9,10 +9,11 @@ T = [82, 123, 287, 83, 248, 373, 10, 471]
 # Ciphertext
 C = 548
 
-# LLLL Algorithm
+# LLL Algorithm
 M = liblll.create_matrix_from_knapsack(T, C)
 M_reduced = liblll.lll_reduction(M)
 U = liblll.best_vect_knapsack(M_reduced)
 print 'U =', U
 
 assert liblll.scalar_product(T, U) == C
+
