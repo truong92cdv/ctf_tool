@@ -118,7 +118,15 @@ def decryptWithCipherLetterMapping(ciphertext, letterMapping):
             
 
 def main():
-    message = """"""
+    message = """azthxvyb nlxl sb kzdx jqvh - bdgbysydyszt_asunlxb_vxl_bzqovgql_gmuvmlvjas
+-------------------------------------------------------------------------------
+avqq cl sbncvlq. bzcl klvxb vhz-tlolx cstw nzm qzth uxlasblqk-nvosth qsyyql zx tz cztlk st ck udxbl, vtw tzynsth uvxysadqvx yz stylxlby cl zt bnzxl, s ynzdhny s mzdqw bvsq vgzdy v qsyyql vtw bll ynl mvylxk uvxy zj ynl mzxqw. sy sb v mvk s nvol zj wxsosth zjj ynl buqllt vtw xlhdqvysth ynl asxadqvyszt. mnltlolx s jstw ckblqj hxzmsth hxsc vgzdy ynl czdyn; mnltlolx sy sb v wvcu, wxsffqk tzolcglx st ck bzdq; mnltlolx s jstw ckblqj stozqdtyvxsqk uvdbsth gljzxl azjjst mvxlnzdblb, vtw gxsthsth du ynl xlvx zj lolxk jdtlxvq s clly; vtw lbulasvqqk mnltlolx ck nkuzb hly bdan vt duulx nvtw zj cl, ynvy sy xledsxlb v byxzth czxvq uxstasuql yz uxlolty cl jxzc wlqsglxvylqk byluusth styz ynl byxlly, vtw clynzwsavqqk ptzapsth ulzuql'b nvyb zjj-ynlt, s vaazdty sy nshn yscl yz hly yz blv vb bzzt vb s avt. ynsb sb ck bdgbysydyl jzx usbyzq vtw gvqq. msyn v unsqzbzunsavq jqzdxsbn avyz ynxzmb nscblqj duzt nsb bmzxw; s edslyqk yvpl yz ynl bnsu. ynlxl sb tzynsth bdxuxsbsth st ynsb. sj ynlk gdy ptlm sy, vqczby vqq clt st ynlsx wlhxll, bzcl yscl zx zynlx, anlxsbn olxk tlvxqk ynl bvcl jllqsthb yzmvxwb ynl zalvt msyn cl.
+
+ynlxl tzm sb kzdx stbdqvx asyk zj ynl cvtnvyyzlb, glqylw xzdtw gk mnvxolb vb stwsvt sbqlb gk azxvq xlljb-azcclxal bdxxzdtwb sy msyn nlx bdxj. xshny vtw qljy, ynl byxllyb yvpl kzd mvylxmvxw. syb liyxlcl wzmtyzmt sb ynl gvyylxk, mnlxl ynvy tzgql czql sb mvbnlw gk mvolb, vtw azzqlw gk gxllflb, mnsan v jlm nzdxb uxloszdb mlxl zdy zj bshny zj qvtw. qzzp vy ynl axzmwb zj mvylx-hvflxb ynlxl.
+
+asxadcvcgdqvyl ynl asyk zj v wxlvck bvggvyn vjylxtzzt. hz jxzc azxqlvxb nzzp yz azltyslb bqsu, vtw jxzc ynltal, gk mnsylnvqq, tzxynmvxw. mnvy wz kzd bll?-uzbylw qspl bsqlty bltystlqb vqq vxzdtw ynl yzmt, byvtw ynzdbvtwb duzt ynzdbvtwb zj czxyvq clt jsilw st zalvt xlolxslb. bzcl qlvtsth vhvstby ynl busqlb; bzcl blvylw duzt ynl uslx-nlvwb; bzcl qzzpsth zolx ynl gdqmvxpb zj bnsub jxzc anstv; bzcl nshn vqzjy st ynl xshhsth, vb sj byxsosth yz hly v bysqq glyylx blvmvxw ullu. gdy ynlbl vxl vqq qvtwbclt; zj mllp wvkb ulty du st qvyn vtw uqvbylx-yslw yz azdtylxb, tvsqlw yz gltanlb, aqstanlw yz wlbpb. nzm ynlt sb ynsb? vxl ynl hxllt jslqwb hztl? mnvy wz ynlk nlxl?
+
+gdy qzzp! nlxl azcl czxl axzmwb, uvasth byxvshny jzx ynl mvylx, vtw bllcsthqk gzdtw jzx v wsol. byxvthl! tzynsth msqq aztylty ynlc gdy ynl liyxlclby qscsy zj ynl qvtw; qzsylxsth dtwlx ynl bnvwk qll zj kztwlx mvxlnzdblb msqq tzy bdjjsal. tz. ynlk cdby hly rdby vb tshn ynl mvylx vb ynlk uzbbsgqk avt msynzdy jvqqsth st. vtw ynlxl ynlk byvtw-csqlb zj ynlc-qlvhdlb. stqvtwlxb vqq, ynlk azcl jxzc qvtlb vtw vqqlkb, byxllyb vtw voltdlb-tzxyn, lvby, bzdyn, vtw mlby. kly nlxl ynlk vqq dtsyl. ylqq cl, wzlb ynl cvhtlysa osxydl zj ynl tllwqlb zj ynl azcuvbblb zj vqq ynzbl bnsub vyyxvay ynlc ynsynlx?"""
 
     print('Hacking ...')
     letterMapping = crackSimpleSub(message)
@@ -133,3 +141,7 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+# https://www.guballa.de/substitution-solver
+# https://www.guballa.de/vigenere-solver
+# https://cryptii.com/

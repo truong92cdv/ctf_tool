@@ -1,5 +1,7 @@
 import pprint
 
+dic = 'dictionary.txt'
+out = 'wordPatterns.py'
 
 def getWordPattern(word):
     word = word.upper()
@@ -18,7 +20,7 @@ def getWordPattern(word):
 def main():
     allPatterns = {}
 
-    f = open('dictionary_french.txt')
+    f = open(dic)
     wordList = f.read().split('\n')
     f.close()
 
@@ -29,7 +31,7 @@ def main():
         else:
             allPatterns[pattern].append(word)
 
-    f = open('wordPatterns_french.py', 'w')
+    f = open(out, 'w')
     f.write('allPatterns = ')
     f.write(pprint.pformat(allPatterns))
     f.close()
