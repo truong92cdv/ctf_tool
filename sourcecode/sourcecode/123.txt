@@ -1,0 +1,24 @@
+[H[2J[3J                    Welcome To Oan Tu Xi
+
+Score: 17                                           Level: Advanced Computer
+
+
+
+
+Your choice: 	       Left hand: Bua                  Right hand: Bao
+
+Computer choice:       Left hand: Bua                  Right hand: Keo
+
+Which hand do you want to keep?
+
+           [L] Left          [R] Right                 Please select:2 3
+2 1
+You chose: L
+
+[H[2J[3J____________FINAL____________
+
+
+                 drx  ---VS---  Computer
+                 Bua            Bua
+
+                  Opps ! Draw :< ...score: ['____________FINAL____________', 'drx', '---VS---', 'Computer', 'Bua', 'Bua', 'Opps', '!', 'Draw', ':<']

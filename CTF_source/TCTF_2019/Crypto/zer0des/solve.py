@@ -18,15 +18,17 @@ def next(secret, LETTERS):
 
 
 def findsecret(sponge, digest, LETTERS):
+	print 'Trying to find secret 2 ...'
 	secret = LETTERS[0]*4
 	while (1):
-		print 'Trying ... ', secret
+		if secret[1:] == '000':
+			print 'Trying {}___'.format(secret[0])
 		if secret==False:
 			print 'Finish'
 			break
 		hashed = sha256(secret + sponge).hexdigest()
 		if hashed==digest:
-			print 'secret: ...............', secret
+			print 'secret: ', secret
 			break
 		secret = next(secret, LETTERS)
 	return secret
@@ -48,14 +50,20 @@ def findsecret(sponge, digest, LETTERS):
 # m2 = m2.replace('|', '').replace('\n','')
 # m2 = m2.decode("hex")
 
-sponge = ';[)hxtzY-lUY3~.%'
-digest = '26bf96f9608504d2dc4e4bb220df9d6c035f795048dc2367cdf3a4c67e901841'
+sponge = '{T7Em`dix?Y#G8(;'
+digest = '0a532b54c5043e57a2dba2cdd8b2863951cab135e7a2158c325716e8f4810664'
 LETTERS = string.printable
 # secret1 = findsecret(sponge, digest, LETTERS)
-secret1 = 'fn,d'
+secret1 = 'bbS`'
 
 sponge = 'j|:!_LO_[Lg32P5c'
 digest = '723d4aba2b2d51619aa8e58dfc801a6cc0fb2a35ce53529c5905601d70c86f9e'
 LETTERS = string.printable
 # secret2 = findsecret(sponge, digest, LETTERS)
 secret2 = 'C(FL'
+
+
+PC_1 = [57, 49, 41, 33, 25, 17, 9, 1, 58, 50, 42, 34, 26, 18, 10, 2, 59, 51, 43, 35, 27, 19, 11, 3, 60, 52, 44, 36, 63, 55, 47, 39, 31, 23, 15, 7, 62, 54, 46, 38, 30, 22, 14, 6, 61, 53, 45, 37, 29, 21, 13, 5, 28, 20, 12, 4]
+i = 1
+print PC_1[i:] + PC_1[:i]
+

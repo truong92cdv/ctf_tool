@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Implementation-Title: shop
+Implementation-Version: 1.0.0
+Built-By: sbobr_000
+Implementation-Vendor-Id: ru.volgactf
+Spring-Boot-Version: 2.1.3.RELEASE
+Main-Class: org.springframework.boot.loader.WarLauncher
+Start-Class: ru.volgactf.shop.ShopApplication
+Spring-Boot-Classes: WEB-INF/classes/
+Spring-Boot-Lib: WEB-INF/lib/
+Created-By: Apache Maven 3.0.5
+Build-Jdk: 1.8.0_65
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/shop
+
